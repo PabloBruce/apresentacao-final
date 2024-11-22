@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Site com Conteúdo de Texto e Imagens</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    .conteudo img {
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .conteudo h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    .conteudo h2 {
+      margin-top: 40px;
+      /* Espaçamento duplo */
+      font-size: 1.5em;
+      color: #444444;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    ol {
+      list-style-type: upper-roman;
+      margin: 10px 30px;
+    }
+
+    .menu_lateral {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #1e90ff;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 30px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .menu_lateral ul {
+      list-style: none;
+      width: 100%;
+      padding: 0;
+    }
+
+    .menu_lateral a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .menu_lateral a:hover {
+      background-color: #104e8b;
+    }
+
+    .content-area {
+      margin-left: 220px;
+      padding: 40px;
+      width: 100%;
+    }
+
+    .conteudo {
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .conteudo img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    const conteudos = {
+      1: {
+        titulo: "Depressão",
+        descricao: `
+          <h2> O que é a depressão?</h2>
+          <p>A depressão é caracterizada pela perda ou diminuição de interesse e prazer pela vida, 
+            gerando angústia e prostração, algumas vezes sem um motivo evidente. 
+            Aproximadamente 280 milhões de pessoas no mundo convivem com o transtorno, de 
+            acordo com a Organização Mundial da Saúde (OMS) e hoje é considerada pela mesma como o "Mal do Século". Hoje, a condição é considerada a 
+            quarta principal causa de incapacitação, segundo a OMS. 
+            De acordo com o CNN Brasil, 1,1% dos adolescentes entre 10 e 14 anos e 2,8% dos entre 15 e 19 anos sofrem de depressão. </p>
+          
+          <h2>Causas da Depressão </h2>
+          <p>Apesar de ser uma doença que possa surgir em qualquer fase da vida, a depressão tem números elevados 
+          quanto pegamos a faixa de idade entre 20 a 30 anos. No entanto, esse números vem crescendo também entre adolescentes. </br>
+          Por ser considerado um transtorno com diferentes causas, o problema também é 
+          associado a uma diversidade de fatores de risco: </br>
+          . Histórico familiar; </br>
+          . Transtornos psiquiátricos correlatos; </br>
+          . Estresse crônico; </br>
+          . Ansiedade crônica; </br>
+          . Disfuncões hormonais; </br>
+          . Excesso de peso; </br>
+          . Sedentarismo e dieta desregrada; </br> 
+          . Vícios (cigarro, álcool e drogas ilícitas); </br> 
+          . Uso excessivo de internet e redes sociais; </br>
+          . Traumas físicos ou psicológicos; </br>
+          . Pancadas na cabeca; </br>
+          . Separação conjugal; </br> 
+           <img src="menininhaDepre.jpeg" alt="" style="max-width: 70%; display: block; margin: 20px auto;"> </br>
+         
+          </p>
+
+          <h2>Sinais e Sintomas </h2>
+          
+          <p>Os sintomas podem variar tanto fisicamente quanto mentalmente, 
+          sendo esse último caso o mais comum e tornando a doença ainda mais díficil de se obter um
+          diagnóstico preciso. </br>
+              - Dentre sintoma físicos podemos destacar: </br> 
+              . Cansaço extremo  </br> 
+              . Fraqueza   </br> 
+              . Insônia (ou sono de má qualidade )   </br>
+              . Irritabilidade   </br> </br>
+              - E entre as pertubações mentais encontramos: </br> 
+              . Angustia   </br> 
+              . Ansiedade exacerbada  </br> 
+              . Baixa autoestima   </br> 
+              . Falta de interesse por atividade que antes davam prazer   </br> 
+              . Pensamentos pessimistas    </br>
+              . Pensamentos frequentes sobre a morte    </br>
+              . Comportamentos compulsivos    </br>
+              . Sensação de impotência ou incapacidade para os afazeres do dia a dia    </br>
+               <img src="sintomasDepre.webp" alt="" style="max-width: 70%; display: block; margin: 20px auto;"> </br>
+              </p>
+
+          <h2> Tratamento</h2>
+          <p> 
+              A depressão pode durar semanas ou mesmo anos. E uma vez que o indivíduo passe por 
+              uma crise, corre maior risco de enfrentar episódio semelhante outra vez na vida. Na 
+              maioria das vezes, o tratamento é feito em conjunto pelo psiquiatra e O psicólogo. 
+              Existem diversos medicamentos antidepressivos, que ajudam a regular a química 
+              cerebral, e o médico escolherá segundo o perfil do paciente. 
+              ○ acompanhamento psicológico, que buscará levantar as causas do problema e como 
+              ele poderá ser desmontado, é crucial inclusive porque os remédios podem demorar um 
+              tempo para fazer efeito. 
+              Dentro da abordagem da psicoterapia, uma das correntes mais utilizadas no tratamento 
+              da depressão é a cognitivo-comportamental, que identifica conflitos e auxilia o paciente 
+              a encará-los e sair do estado de abatimento. Existem estudos apontando que a 
+              acupuntura e a musicoterapia seriam coadjuvantes na recuperação do bem-estar 
+              emocional. 
+              No mais, volta à tona a recomendação de um estilo de vida saudável, com dieta 
+              equilibrada e prática regular de atividade física. Também se reforça a indicação para 
+              combater o estresse concedendo tempo na agenda para atividades prazerosas.
+              <img src="psicologo.jpeg" alt="" style="max-width: 90%; display: block; margin: 20px auto;"> </br> 
+              </p>
+
+      `,
+      },
+
+      2: {
+        titulo: "Ansiedade",
+        descricao: `
+          <h2>O que é a Ansiedade?</h2>
+          <p>A ansiedade é um estado emocional comum que todos nós experimentamos em 
+              diferentes momentos da vida. No entanto, quando se torna persistente e interfere 
+              negativamente no nosso bem-estar, é essencial compreender as complexas conexões 
+              entre a ansiedade e o cérebro. De acordo com a Organização Pan-Americana de Saúde (OPAS), 
+              entre 10% e 20% dos adolescentes sofrem de problemas de saúde mental. 
+              No Brasil, o país ocupa uma posição alarmante no cenário mundial, sendo o país com mais casos de ansiedade.  </p>
+
+          <h2>Causas da Ansiedade</h2>
+          <p>As causas da ansiedade podem variar, mas o motivo mais comum é o ambiente no qual a pessoa está inserida. Algumas 
+          das causas dessa doença incluem: </br> 
+          . Fatores biológicos: Mudanças hormonais e de humor, e o desenvolvimento do cérebro; </br>
+          . Fatores ambientais: Bullying, separação dos pais, mudança de escola ou amigos, e ambientes estressantes; </br>
+          . Fatores emocionais: Traumas, medo de decepcionar, medo de não ser bom o suficiente, medo de rejeição; </br> 
+          . Fatores genéticos: Histórico familiar de transtornos de ansiedade; </br> 
+          . Fatores de educação: Estilo de educação protetora demais ou crítica demais, e falta de apoio da família; </br>
+          . Uso de substâncias: Consumo nocivo de álcool, drogas, tabaco, ou cannabis; </br>
+          . Uso excessivo de redes sociais: Uso recorrente e sem controle de mídias ou redes sociais</p> </br>
+          <img src="meninaAnsiosa.jpeg" alt="" style="max-width: 90%; display: block; margin: 20px auto;"> </br> 
+
+          <h2>Sintomas do transtorno de ansiedade </h2>
+          <p>Os sintomas de ansiedade em sua grande maioria são físicos, sendo eles: </br>
+          . Problemas para dormir; </br>
+          . Inquietação ou nervosismo; </br>
+          . Dores de cabeça; </br>
+          . Dificuldade de concentração; </br>
+          . Dores de estômago ou sensação de náuseas; </br>
+          . Irritabilidade; </br>
+          . Sudorese excessiva; </br>
+          . Tonturas; </br>
+          . Formigamento nas mãos; </br> 
+          . Batimentos cardíacos acelerados; </br> 
+          <img src="sintomasAnsiedade.png" alt="" style="max-width: 90%; display: block; margin: 20px auto;"> </br>
+ 
+          </p>
+
+          <h2>Tratamentos para Ansiedade </h2>
+          <p>O tratamento para ansiedade pode ser feito com terapia, medicamentos, ou uma combinação dos dois. O tratamento 
+          deve ser orientado por um psiquiatra ou psicólogo e varia de pessoa para pessoa, dependendo da intensidade dos sintomas. Entre os tratamentos
+          vale a pena citar: 
+          <ol>
+          <li> Terapia ; </li>
+          
+          <li> Medicamentos; </li>
+          
+          <li> Práticas de relaxamento;</li>
+
+          <li> Meditação;</li> 
+
+          <li> Alimentação saudável; </li>
+          
+          <li> Atividade Física; </li>
+          
+          <img src="tratamentoAnsiedade.jpeg" alt="" style="max-width: 90%; display: block; margin: 20px auto;"> </br>
+          </p>
+      `,
+      },
+
+      3: {
+        titulo: "Transtorno de Déficit de Atenção e Hiperatividade (TDAH)",
+        descricao: `
+          <h2>O que é o TDAH? </h2>
+          <p>O Transtorno de Déficit de Atenção e Hiperatividade (TDAH) 
+          se caracteriza pela desatenção, impulsividade e hiperatividade. Antes de mais nada, é importante 
+          considerar que estes comportamentos são comuns entre as pessoas, sim! Sempre tem um dia em que estamos mais avoados, 
+          mais ansiosos… Porém, quando eles passam a comprometer a socialização, a saúde emocional e, principalmente, o aprendizado, 
+          é preciso investir em cuidados específicos.
+          A <a href="https://tdah.org.br">Associação Brasileira do Déficit de Atenção</a> define o TDAH da seguinte forma: “é um transtorno neurobiológico, de 
+          causas genéticas, que aparece na infância e frequentemente acompanha o indivíduo por toda a sua vida. 
+          Ele se caracteriza majoritariamente por sintomas de desatenção, inquietude e impulsividade.” </br>
+          O TDAH pode ser classificado em três graus: leve, moderado e grave: </br>
+          <b>Leve</b>: Poucos sintomas, mas que podem causar pequenos prejuízos no desempenho social, profissional ou acadêmico </br>
+          <b>Moderado</b>: Sintomas e prejuízos de graus leve e grave </br>
+          <b>Grave</b>: Muitos sintomas, com prejuízos funcionais acentuados </br>
+
+          </p>
+
+          <h2>Causas do TDAH</h2>
+          <p>O Transtorno do Déficit da Atenção e Hiperatividade (TDAH), classificado como um transtorno do neurodesenvolvimento, continua sendo mal compreendido. Discussões sobre a existência de um quadro clínico específico ainda ocorrem, provavelmente decorrente da dificuldade em 
+          distingui-lo de outros transtornos que também apresentam a desatenção como parte de sua sintomatologia. Segundo estudos feitos, as causas 
+          podem variar, sendo elas: </br> 
+          . Predisposição genética; </br>
+ 
+          . Alterações nos neurotransmissores, como a dopamina e a noradrenalina; </br>
+          
+          . Substâncias ingeridas pela mãe durante a gravidez, como álcool e nicotina; </br> 
+          
+          . Sofrimento fetal, como problemas no parto que reduzam ou eliminem o oxigênio; </br> 
+          
+          . Baixo peso ao nascimento; </br> 
+          
+          . Traumatismo craniano; </br> 
+          
+          . Infecção cerebral; </br> 
+          
+          . Deficiência de ferro; </br> 
+          
+          . Apneia obstrutiva do sono; </br> 
+          
+          . Exposição a chumbo; </br> 
+          Vele salientar que não há evidencias de que o TDAH possa ser causado por fatores ambientais tais como o 
+          estilo parental e educacional. Obviamente tais fatores podem intensificar ou atenuar a manifestação dos sintomas
+          , mas não explicam a causa inicial do TDAH.
+          </p>
+
+          <h2>Sintomas do TDAH</h2>
+          <p>Os TDAH podem variar de acordo com o tipo de TDAH, mas alguns dos mais comuns são: </br> 
+          . Desatenção; </br>
+          . Inquietação; </br>
+          . Impulsividade; </br>
+          . Agitação; </br>
+          . Dificuldade de concentração; </br>
+          . Esquecimento; </br>
+          . Dificuldade de organizar tarefas; </br>
+          </p>
+
+          <h2> Tratamento para TDAH </h2>
+          <p>O TDAH é multimodal, ou seja, combina vários métodos, como: </br>
+          <ol>
+          <li> Medicamentos, como psicoestimulantes, antipsicóticos ou antidepressivos;</li> 
+          <li> Terapia comportamental, como a Terapia Cognitivo Comportamental;</li> 
+          <li> Fonoaudiologia, em casos de transtornos de fala ou escrita;</ili> 
+          <li> Orientação aos pais e professores; </li>
+          <li> Ensino de técnicas específicas para o paciente;</li>
+          <ol>
+          O tratamento vai variar de acordo com nível do TDAH.
+          </p>
+      `,
+      },
+      4: {
+        titulo: "Transtorno de Borderline",
+        descricao: `
+          <h2>O que é o Transtorno de Borderline</h2>
+          <p>Também chamada de transtorno de personalidade limítrofe, a Síndrome de Borderline é caracterizada pelas mudanças súbitas de humor, medo de ser abandonado pelos amigos e 
+          comportamentos impulsivos, como gastar dinheiro descontroladamente ou comer compulsivamente, por exemplo. </br>
+          O termo "Transtorno de Personalidade Borderline" (TPB) foi usado pela primeira vez em 1884 e, desde então, passou por diversas definições. Originalmente, o termo "Borderline" se referia a um grupo de pacientes que vivia no limite da sanidade (daí o termo “limítrofe”), ou seja, na fronteira 
+          (borda) entre a neurose e a psicose. Alguns autores da época usavam esse diagnóstico quando havia sintomas neuróticos graves. </br>
+          O transtorno de personalidade borderline é caracterizado por instabilidade afetiva, impulsividade, difusão de identidade e disfunção interpessoal. A rejeição e a perda percebidas frequentemente servem como gatilhos para comportamento impulsivo, suicida e autolesivo, reatividade afetiva e explosões de raiva, sugerindo que o apego e o sistema afiliativo podem estar implicados no transtorno.
+          Geralmente, as pessoas com este transtorno têm momentos em que estão estáveis, alternados com episódios de ira, depressão e ansiedade, manifestando comportamentos descontrolados. Esses sintomas começam a se manifestar na adolescência e se tornam mais aparentes no início da vida adulta, tendendo a minimizar após os 40 anos.
+          
+          </p>
+
+          <h2> Causas do Transtornos de Borderline </h2>
+          <p>
+          O trauma na infância é considerado o principal fator ambiental envolvido no, estudos apontam uma correlação
+           entre as adversidades precoces com a expressão sintomatológica do transtorno e sua gravidade. Dentre os tipos de maus-tratos incluem: </br>
+            <ul> 
+              <li> Abuso físico</li>
+              <li> Abuso emocional</li>
+              <li> Abuso sexual </li>
+              <li> Negligência emocional </li>
+              <li> Negligência física</li>
+            </ul>
+            <img src="causasBordeline.jpeg" alt="" style="max-width: 90%; display: block; margin: 20px auto;"> </br>
+          </p>
+          <h2> Sintomas do Transtornos de Borderline </h2>
+          <p>
+          A compreensão dos efeitos desses eventos traumáticos para o tratamento da psicopatologia e as suas 
+          influências seja na patogênese ou na manifestação dos sintomas ainda é limitada, necessitando, assim de novas investigações acerca 
+          das influências do trauma infantil no Transtorno de Personalidade Borderline. Entre os sintomas, podemos perceber:</br>
+            <ul> 
+              <li> Mudanças de humor e interesses</li>
+              <li> Sentimentos extremos</li>
+              <li> Instabilidade nos relacionamentos </li>
+              <li> Medo de abandono </li>
+              <li>Problemas de autoimagem</li>
+              <li> Impulsividade</li>
+              <li>Agressividade </li>
+              <li> Dificuldades para confiar</li>
+              <li>Comportamento constante de raiva </li>
+              <li> Crises de identidade</li>
+            </ul>
+            <img src="boderlineSintomas.jpeg" alt="" style="max-width: 90%; display: block; margin: 20px auto;"> </br>
+          </p>
+          
+
+          <h2>Tratamento para Borderline </h2>
+          <p>O tratamento do transtorno de personalidade borderline é feito com uma combinação de psicoterapia e medicamentos. </br>
+          <ul>
+              <li> A psicoterapia é um processo que envolve o estabelecimento de uma relação de confiança e empatia entre o paciente e o psicoterapeuta. O psicoterapeuta cria um 
+              ambiente seguro e acolhedor para que o paciente possa expressar seus sentimentos e explorar questões profundas. </li>
+              <li> Os medicamentos mais utilizados são os antidepressivos, estabilizadores de humor e antipsicóticos. Enquanto os antidepressivos 
+              tratam o característico sentimento de vazio dos pacientes, os estabilizadores visam reduzir as oscilações de humor.</li>
+              
+            <ul>
+          </p>
+
+         
+      `,
+      },
+
+      5: {
+        titulo: "locais que você pode conseguir ajuda de forma gratuita",
+        descricao: `
+          <h2>Centro de Atenção Psicossocial Infantojuvenil Leste (CAPSi Leste)</h2>
+          <p> <ul type="circle">
+              <li>Endereço: Avenida Adolpho Ducke, 1221, Conjunto Acariquara, Coroado </li>
+              <li>Telefone(s): <b>(92) 98842- 4272 </b></li>
+              <li>Horário de atendimento ao público: segunda a sexta 07h00 às 17h00</li>
+              <ul>
+              <a href="https://www.google.com/maps/dir//Centro+de+Atenção+Psicossocial+Infantojuvenil+Leste+-+Av.+Adolfo+Ducke,+1221+-+Conjunto+Acariquara,+Manaus+-+AM,+69082-653/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x926c1bc5bbf7120d:0x30b14588ea355325?sa=X&ved=1t:57443&ictx=111">Clique Aqui para ver no mapa </a>
+          </p>
+
+          <h2>Centro de Atenção Psicossocial Infantojuvenil Sul (CAPSi Sul)</h2>
+          <p><ul type="circle",>
+            <li>Rua Santa Catarina, nº03 – Parque das Laranjeiras- próximo à praça de alimentação do Parque das Laranjeiras</li>
+            <li>Telefone(s): <b>(92) 98842-5899</b></li>
+            <li>Horário de atendimento ao público: segunda a sexta 07h00 às 17h00</li>
+            <a  href="https://www.google.com/maps/dir//Centro+de+Atenção+Psicossocial+Infantojuvenil+Sul–+CAPSi+Sul+-+R.+Santa+Catarina,+3+-+Flores,+Manaus+-+AM,+69058-330/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x926c1b07f2be8b87:0xbe5dbb0339dcb4f5?sa=X&ved=1t:57443&ictx=111"> Clique Aqui para ver no mapa </a>
+            </ul>
+          </p>
+
+          <h2>Faculdade Martha Falcão (FMF) </h2>
+          <p>
+          <ul type="circle">
+          <li> Endereço: Rua Natal, 300, Adrianópolis </li>
+          <li> Telefone(s): <B>(92) 3212-5169 </B> </li>
+          <li> Horário de atendimento ao público: segunda à sexta, das 8h às 12h e 14h às 20h, e aos sábados, de 08h às12h. </li>
+          </ul>
+          <a href="https://www.google.com/maps?client=opera-gx&sca_esv=08c4341ef57b0161&biw=1879&bih=928&sxsrf=ADLYWILBR-nZtirhe1VFRIfReF4zPZIsQg:1731200938348&gs_lp=Egxnd3Mtd2l6LXNlcnAiBm1hcnRoYSoCCAEyChAjGIAEGCcYigUyExAuGIAEGEMYxwEYigUYjgUYrwEyChAAGIAEGEMYigUyCxAuGIAEGLEDGIMBMg4QLhiABBjHARiOBRivATIIEC4YgAQYsQMyBRAAGIAEMggQLhiABBixAzINEC4YgAQYsQMYQxiKBTIIEC4YgAQYsQMyIhAuGIAEGEMYxwEYigUYjgUYrwEYlwUY3AQY3gQY4ATYAQFIpyBQ1gVY9QpwAXgAkAEAmAGcAqABsQqqAQUwLjEuNbgBA8gBAPgBAZgCCKACqRmoAhTCAgcQIxgnGOoCwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAcICChAuGIAEGCcYigXCAgQQIxgnwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICFxAuGIAEGIoFGJcFGNwEGN4EGN8E2AEBwgIKEC4YgAQYFBiHAsICExAuGIAEGBQYhwIYxwEYjgUYrwHCAgoQABiABBgUGIcCwgIREC4YgAQYsQMY0QMYgwEYxwHCAg4QLhiABBixAxiDARiKBcICChAuGIAEGEMYigWYAwa6BgYIARABGAuSBwkxLjEuNS43LTGgB426AQ&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KSeCDx5PBWySMSevb3pceGxg&daddr=R.+Natal,+300+-+Adrianópolis,+Manaus+-+AM,+69057-090">Clique Aqui para ver no mapa </a>
+          </p>
+
+          <h2> Centro de Valorização da Vida (CVV) </h2>
+          <p> Serviço de atendimento gratuito por meio de telefone ou On-line.
+          <ul type="circle">
+            <li> Telefone(s): 188</li> 
+            <li> <a href="https://cvv.org.br/chat/#:~:text=Bem-vindo%20ao%20atendimento%20do,procuram%20ajuda%20e%20apoio%20emocional."> Chat CVV </a></li> 
+          <ul>
+          
+          </p>
+      `,
+      },
+      6: {
+        titulo: "Referências",
+        descricao: `
+          <h2>Depressão</h2>
+          <p>
+            <ul type="square"> 
+              <li> <a href="https://saude.abril.com.br/"> https://saude.abril.com.br/</a> </li>
+              <li> <a href="https://hospitalsantamonica.com.br/mito-ou-verdade-depressao-e-genetica/">https://hospitalsantamonica.com.br/mito-ou-verdade-depressao-e-genetica/</a> </li>
+              
+            
+            </ul
+
+          </p>
+
+          <h2> Ansiedade </h2>
+          <p>
+            <ul type="square">
+              <li> <a href="https://reservatoriodedopamina.com.br/blog/ansiedade-e-o-cerebro/"> https://reservatoriodedopamina.com.br</a> </li>
+              <li> <a href="https://vidasaudavel.einstein.br/ansiedade/">https://vidasaudavel.einstein.br </a> </li>
+              
+            <ul>
+          </p>
+          
+
+          <h2>TDAH</h2>
+          <p>
+          <ul type="square">
+              <li> <a href="https://institutosingular.org/blog/tdah/?utm_source=google_ads&utm_medium=cpc&utm_campaign=21759940711&utm_content=&utm_term=&gad_source=1">https://institutosingular.org </a> </li>
+              <li> <a href="https://tdah.org.br">https://tdah.org.br </a> </li>
+              <li> <a href="https://tdahcampinas.com.br/qual-a-causa-do-tdah/#:~:text=Cerca%20de%2060-70%25%20dos,no%20nascimento%2C%20prematuridade%20etc.)">https://tdahcampinas.com.br </a> </li>
+            <ul>
+          </p>
+
+          <h2>Borderline</h2>
+          <p>
+          <ul type="square">
+              <li> <a href="https://www.msdmanuals.com/pt/profissional/transtornos-psiqui%C3%A1tricos/transtornos-de-personalidade/transtorno-de-personalidade-borderline#Tratamento_v25246848_pt
+">https://www.msdmanuals.com/pt/profissional/transtornos-psiqui%C3%A1tricos/transtornos-de-personalidade/transtorno-de-personalidade-borderline#Tratamento_v25246848_pt
+ </a> </li>
+              <li> <a href="https://hospitalsantamonica.com.br/saude-mental/transtorno-de-borderline/"> https://hospitalsantamonica.com.br/saude-mental/transtorno-de-borderline/</a> </li>
+              <li> <a href="https://pubmed.ncbi.nlm.nih.gov/19952075/">https://pubmed.ncbi.nlm.nih.gov/19952075/</a> </li>
+            <ul>
+          </p>
+
+         
+      `,
+      },
+    };
+
+    function mostrar_Conteudo(pagina) {
+      const conteudo = conteudos[pagina];
+      const conteudoDiv = document.getElementById("conteudo");
+
+      conteudoDiv.innerHTML = `
+      <h1>${conteudo.titulo}</h1>
+      ${conteudo.descricao}
+  `;
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <nav class="menu_lateral">
+    <div class="logo">
+      <img src="faculdade-martha-falcao.webp" alt="Logo da faculdade Martha Falcão">
+    </div>
+    <ul>
+      <li><a href="#" onclick="mostrar_Conteudo(1)"> Depressão</a></li>
+      <li><a href="#" onclick="mostrar_Conteudo(2)"> Ansiedade </a></li>
+      <li><a href="#" onclick="mostrar_Conteudo(3)"> Transtorno de Déficit de Atenção e Hiperatividade (TDAH)</a></li>
+      <li><a href="#" onclick="mostrar_Conteudo(4)"> Transtorno de Borderline</a></li>
+      <li><a href="#" onclick="mostrar_Conteudo(5)">Precisa de ajuda? </a></li>
+      <li><a href="#" onclick="mostrar_Conteudo(6)">Referências bibliográficas</a></li>
+    </ul>
+  </nav>
+
+
+  <main class="content-area">
+    <div id="conteudo" class="conteudo">
+      <h1>A Saúde Mental do Adolescentes</h1> <br>
+      <h2>A importância de tratar do tema.</h2>
+      <p>A saúde mental dos adolescentes é um tema de extrema importância, especialmente em um mundo onde pressões
+        sociais, acadêmicas e o impacto das redes sociais são constantes. A adolescência é uma fase de profundas
+        transformações, onde os jovens estão construindo sua identidade, lidando com novas responsabilidades e
+        explorando suas emoções. É também um período vulnerável, em que problemas como ansiedade, depressão, baixa
+        autoestima e isolamento social podem surgir ou se intensificar. <br> <br>
+
+        Infelizmente, muitos adolescentes ainda enfrentam barreiras para falar sobre saúde mental devido ao estigma e ao
+        medo de serem julgados. Este espaço foi criado para: <br>
+      <ul>
+        <li>Oferecer informação segura; </li>
+        <li>Apoio e recursos que ajudem a identificar os transtornos; </li>
+        <li>Mostrar onde podem conseguir ajuda;</li>
+        <li>Ajudar a compreender suas emoções; </li>
+      </ul>
+
+      Queremos construir um ambiente acolhedor e
+      empático, onde adolescentes, familiares e educadores possam aprender mais sobre saúde mental, promover o
+      autocuidado e criar uma rede de apoio. Cuidar da mente é essencial para viver bem e desenvolver todo o potencial
+      que cada jovem carrega.</p>
+    </div>
+  </main>
+
+
+</body>
+
+</html>
